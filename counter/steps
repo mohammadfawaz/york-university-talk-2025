@@ -1,0 +1,21 @@
+# Install Nix
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+
+# Enter Nix shell
+nix develop github:essential-contributions/essential-integration
+
+# Build the counter
+cd contract
+pint build # in 
+
+# Run a test builder
+essential-builder --node-api-bind-address "0.0.0.0:3553" --builder-api-bind-address "0.0.0.0:3554"
+
+# Deploy the contract
+pint deploy --builder-address "http://127.0.0.1:3554" --contract "./out/debug/counter.json"
+
+# Submit a solution
+pint submit --builder-address "http://127.0.0.1:3554" --solution "./solution.json"
+
+# Query the `counter`
+pint query --node-address "http://127.0.0.1:3553" --contract-address "EBA88BE8304C4D6BF8031FE33D831C5D614807114F7A3FEA0FC7DCD72349B60B" counter
