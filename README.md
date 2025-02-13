@@ -3,8 +3,9 @@
 ## Agenda
 
 1. Quick overview.
-1. "Counter" contract and "counter" app
-1. "Token" contract and "token" app
+1. "Counter" contract
+1. Deploying a contract and submitting a solution 
+1. "Token" contract
 
 ## Useful links
 
